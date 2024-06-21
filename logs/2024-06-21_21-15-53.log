@@ -1,0 +1,66 @@
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:15:55.507788
+Start name method: open_main_page
+
+End time: 2024-06-21 21:15:58.903236
+End name method: open_main_page
+URL: https://sbis.ru/
+
+-----
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:15:58.903236
+Start name method: open_contacts
+
+End time: 2024-06-21 21:16:00.144674
+End name method: open_contacts
+URL: https://sbis.ru/contacts
+
+-----
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:16:00.145675
+Start name method: open_tensor
+
+End time: 2024-06-21 21:16:00.655951
+End name method: open_tensor
+URL: https://sbis.ru/contacts/52-nizhegorodskaya-oblast?tab=clients
+
+-----
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:16:00.666954
+Start name method: check_tensor_block
+
+End time: 2024-06-21 21:16:03.477416
+End name method: check_tensor_block
+URL: https://tensor.ru/
+
+-----
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:16:03.478417
+Start name method: open_about
+
+End time: 2024-06-21 21:16:04.770282
+End name method: open_about
+URL: https://tensor.ru/about
+
+-----
+
+-----
+Test: test_block_and_image.py::test_block_and_image (call)
+Start time: 2024-06-21 21:16:04.770282
+Start name method: check_img_size
+
+End time: 2024-06-21 21:16:05.009336
+End name method: check_img_size
+URL: https://tensor.ru/about
+
+-----
