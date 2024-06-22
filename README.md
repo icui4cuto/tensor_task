@@ -28,7 +28,9 @@
 ## Создание и просмотр отчетов Allure
 
 1. Создание отчета
+
 ```python -m pytest --alluredir=test_results/ ```
 
-2. Просмотр отчета
+3. Просмотр отчета
+   
 ``` allure serve test_results/ ```
