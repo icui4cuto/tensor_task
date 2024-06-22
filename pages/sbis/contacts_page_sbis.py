@@ -79,6 +79,7 @@ class ContactsPageSbis(Base):
             self.assert_title(region)
             self.assert_region_url(region_id)
         except StaleElementReferenceException:
+            print("Not found element! Driver refresh!")
             self.driver.refresh()
 
         Logger.add_end_step(url=self.driver.current_url, method="check_region")

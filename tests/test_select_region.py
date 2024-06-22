@@ -13,6 +13,7 @@ def test_select_region(set_up):
     options = webdriver.ChromeOptions()
     options.add_argument("start-maximized")
     options.add_argument("—disable-popup-blocking")
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     driver = webdriver.Chrome(options=options)
 
     # Переход в раздел 'Контакты'

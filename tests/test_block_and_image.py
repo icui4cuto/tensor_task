@@ -14,6 +14,7 @@ def test_block_and_image(set_up):
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     options.add_argument("start-maximized")
     options.add_argument("—disable-popup-blocking")
     driver = webdriver.Chrome(options=options)

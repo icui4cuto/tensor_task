@@ -56,6 +56,7 @@ class MainPageSbis(Base):
             self.get_current_url()
             self.select_contacts()
         except StaleElementReferenceException:
+            print("Not found element! Driver refresh!")
             self.driver.refresh()
         Logger.add_end_step(url=self.driver.current_url, method="open_contacts")
 

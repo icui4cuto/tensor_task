@@ -45,6 +45,7 @@ class MainPageTensor(Base):
             print("Block 'Сила в людях':", end=' ')
             self.assert_word(self.get_power_in_people(), "Сила в людях")
         except StaleElementReferenceException:
+            print("Not found element! Driver refresh!")
             self.driver.refresh()
         Logger.add_end_step(url=self.driver.current_url, method="check_tensor_block")
 
