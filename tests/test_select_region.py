@@ -1,9 +1,11 @@
+import allure
 from selenium import webdriver
 
 from pages.sbis.contacts_page_sbis import ContactsPageSbis
 from pages.sbis.main_page_sbis import MainPageSbis
 
 
+@allure.description("Проверка возможности изменения региона")
 def test_select_region(set_up):
     """ В данном тесте осуществляется:
      1. Проверка правильности выбора нашего региона "Нижегородская область" и список партнеров

@@ -1,6 +1,7 @@
 import os
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -39,17 +40,18 @@ class DownloadPageSbis(Base):
     # Methods
     def downloads(self):
         """ Скачиваем и проверяем файл """
-        Logger.add_start_step(method="downloads")
-        if not os.access(self.file_path, os.F_OK):
-            self.click_download()
-            for s in range(0, 30, 5):
-                if os.access(self.file_path, os.F_OK):
-                    break
-                else:
-                    time.sleep(s)
-        self.assert_file_in_directory(self.file_path)
-        self.assert_file_size(self.file_path, self.value_file_size())
-        Logger.add_end_step(url=self.driver.current_url, method="downloads")
+        with allure.step("downloads"):
+            Logger.add_start_step(method="downloads")
+            if not os.access(self.file_path, os.F_OK):
+                self.click_download()
+                for s in range(0, 30, 5):
+                    if os.access(self.file_path, os.F_OK):
+                        break
+                    else:
+                        time.sleep(s)
+            self.assert_file_in_directory(self.file_path)
+            self.assert_file_size(self.file_path, self.value_file_size())
+            Logger.add_end_step(url=self.driver.current_url, method="downloads")
 
 
 

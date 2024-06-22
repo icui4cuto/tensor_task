@@ -1,3 +1,4 @@
+import allure
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -45,26 +46,29 @@ class MainPageSbis(Base):
     # Methods
     def open_main_page(self):
         """ Открываем главную страницу """
-        Logger.add_start_step(method="open_main_page")
-        self.driver.get(self.url)
-        Logger.add_end_step(url=self.driver.current_url, method="open_main_page")
+        with allure.step("open_main_page"):
+            Logger.add_start_step(method="open_main_page")
+            self.driver.get(self.url)
+            Logger.add_end_step(url=self.driver.current_url, method="open_main_page")
 
     def open_contacts(self):
         """ Переходим в раздел 'Контакты' """
-        Logger.add_start_step(method="open_contacts")
-        try:
-            self.get_current_url()
-            self.select_contacts()
-        except StaleElementReferenceException:
-            print("Not found element! Driver refresh!")
-            self.driver.refresh()
-        Logger.add_end_step(url=self.driver.current_url, method="open_contacts")
+        with allure.step("open_contacts"):
+            Logger.add_start_step(method="open_contacts")
+            try:
+                self.get_current_url()
+                self.select_contacts()
+            except StaleElementReferenceException:
+                print("Not found element! Driver refresh!")
+                self.driver.refresh()
+            Logger.add_end_step(url=self.driver.current_url, method="open_contacts")
 
     def open_download_page(self):
         """ Переходим в раздел 'Скачать' """
-        Logger.add_start_step(method="open_download_page")
-        self.get_current_url()
-        self.click_download_link()
-        Logger.add_end_step(url=self.driver.current_url, method="open_download_page")
+        with allure.step("open_download_page"):
+            Logger.add_start_step(method="open_download_page")
+            self.get_current_url()
+            self.click_download_link()
+            Logger.add_end_step(url=self.driver.current_url, method="open_download_page")
 
 

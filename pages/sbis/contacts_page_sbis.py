@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -61,32 +62,35 @@ class ContactsPageSbis(Base):
 
     # Methods
     def open_tensor(self):
-        """ Переходим на страницу Tensor.ru"""
-        Logger.add_start_step(method="open_tensor")
-        self.click_tensor_banner()
-        Logger.add_end_step(url=self.driver.current_url, method="open_tensor")
+        """ Переходим на страницу Tensor.ru """
+        with allure.step("open_tensor"):
+            Logger.add_start_step(method="open_tensor")
+            self.click_tensor_banner()
+            Logger.add_end_step(url=self.driver.current_url, method="open_tensor")
 
     def check_region(self, region, partner_list, region_id):
         """ Проверка региона и наличия списка партнеров """
-        Logger.add_start_step(method="check_region")
-        try:
-            self.get_current_url()
-            print("Selected region:", end=' ')
-            time.sleep(2)
-            self.assert_word(self.get_region(), region)
-            print("Check partner list:", end=' ')
-            self.assert_word(self.get_partner_list(), partner_list)
-            self.assert_title(region)
-            self.assert_region_url(region_id)
-        except StaleElementReferenceException:
-            print("Not found element! Driver refresh!")
-            self.driver.refresh()
+        with allure.step("check_region"):
+            Logger.add_start_step(method="check_region")
+            try:
+                self.get_current_url()
+                print("Selected region:", end=' ')
+                time.sleep(2)
+                self.assert_word(self.get_region(), region)
+                print("Check partner list:", end=' ')
+                self.assert_word(self.get_partner_list(), partner_list)
+                self.assert_title(region)
+                self.assert_region_url(region_id)
+            except StaleElementReferenceException:
+                print("Not found element! Driver refresh!")
+                self.driver.refresh()
 
-        Logger.add_end_step(url=self.driver.current_url, method="check_region")
+            Logger.add_end_step(url=self.driver.current_url, method="check_region")
 
     def select_region(self):
         """ Выбор региона """
-        Logger.add_start_step(method="select_region")
-        self.click_region_list()
-        self.select_kamchatka_region()
-        Logger.add_end_step(url=self.driver.current_url, method="select_region")
+        with allure.step("select_region"):
+            Logger.add_start_step(method="select_region")
+            self.click_region_list()
+            self.select_kamchatka_region()
+            Logger.add_end_step(url=self.driver.current_url, method="select_region")

@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 
 from pages.sbis.contacts_page_sbis import ContactsPageSbis
@@ -6,6 +7,7 @@ from pages.tensor.about_page_tensor import AboutPageTensor
 from pages.tensor.main_page_tensor import MainPageTensor
 
 
+@allure.description("Проверка наличия блока 'Сила в людях' и имеют ли изображения в блоке 'Работаем' одинаковые параметры")
 def test_block_and_image(set_up):
     """ В данном тесте осуществляется:
      1. Проверка наличия блока 'Сила в людях' на странице https://tensor.ru/

@@ -1,3 +1,4 @@
+import allure
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -39,19 +40,21 @@ class MainPageTensor(Base):
     # Methods
     def check_tensor_block(self):
         """ Проверяем есть ли блок 'Сила в людях' """
-        Logger.add_start_step(method="check_tensor_block")
-        try:
-            self.get_current_url()
-            print("Block 'Сила в людях':", end=' ')
-            self.assert_word(self.get_power_in_people(), "Сила в людях")
-        except StaleElementReferenceException:
-            print("Not found element! Driver refresh!")
-            self.driver.refresh()
-        Logger.add_end_step(url=self.driver.current_url, method="check_tensor_block")
+        with allure.step("check_tensor_block"):
+            Logger.add_start_step(method="check_tensor_block")
+            try:
+                self.get_current_url()
+                print("Block 'Сила в людях':", end=' ')
+                self.assert_word(self.get_power_in_people(), "Сила в людях")
+            except StaleElementReferenceException:
+                print("Not found element! Driver refresh!")
+                self.driver.refresh()
+            Logger.add_end_step(url=self.driver.current_url, method="check_tensor_block")
 
     def open_about(self):
         """ Переход на страницу 'Подробнее' """
-        Logger.add_start_step(method="open_about")
-        self.click_about_link()
-        self.assert_url("https://tensor.ru/about")
-        Logger.add_end_step(url=self.driver.current_url, method="open_about")
+        with allure.step("open_about"):
+            Logger.add_start_step(method="open_about")
+            self.click_about_link()
+            self.assert_url("https://tensor.ru/about")
+            Logger.add_end_step(url=self.driver.current_url, method="open_about")

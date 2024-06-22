@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -43,8 +44,9 @@ class AboutPageTensor(Base):
     # Methods
     def check_img_size(self):
         """ Проверка, имеют ли изображения в блоке 'Работаем' одинаковые параметры 'height' и 'weight' """
-        Logger.add_start_step(method="check_img_size")
-        self.get_current_url()
-        self.assert_img_size(self.get_img_1(), self.get_img_2(), self.get_img_3(), self.get_img_4())
-        Logger.add_end_step(url=self.driver.current_url, method="check_img_size")
+        with allure.step("check_img_size"):
+            Logger.add_start_step(method="check_img_size")
+            self.get_current_url()
+            self.assert_img_size(self.get_img_1(), self.get_img_2(), self.get_img_3(), self.get_img_4())
+            Logger.add_end_step(url=self.driver.current_url, method="check_img_size")
 

@@ -1,10 +1,13 @@
 import os
+
+import allure
 from selenium import webdriver
 
 from pages.sbis.download_page_sbis import DownloadPageSbis
 from pages.sbis.main_page_sbis import MainPageSbis
 
 
+@allure.description("Проверка возможности скачивания файла веб-установщика")
 def test_download_file(set_up):
     """ В данном тесте осуществляется:
      1. Скачивание файла веб-установщика
