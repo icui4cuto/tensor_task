@@ -15,7 +15,8 @@ def test_download_file(set_up):
     prefs = {"download.default_directory": os.getcwd(), "download.directory_upgrade": True,
              'safebrowsing.enabled': True}
     options.add_experimental_option('prefs', prefs)
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("start-maximized")
+    options.add_argument("—disable-popup-blocking")
     driver = webdriver.Chrome(options=options)
 
     # Открываем главную страницу

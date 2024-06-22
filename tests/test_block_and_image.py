@@ -13,7 +13,9 @@ def test_block_and_image(set_up):
      3. Проверка, имеют ли изображения в блоке 'Работаем' одинаковые параметры 'height' и 'weight' """
 
     options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_argument("start-maximized")
+    options.add_argument("—disable-popup-blocking")
     driver = webdriver.Chrome(options=options)
 
     # Переход в раздел 'Контакты'

@@ -11,7 +11,8 @@ def test_select_region(set_up):
      3. Проверка, содержит ли url и title страницы информацию о выбранном регионе """
 
     options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("start-maximized")
+    options.add_argument("—disable-popup-blocking")
     driver = webdriver.Chrome(options=options)
 
     # Переход в раздел 'Контакты'
