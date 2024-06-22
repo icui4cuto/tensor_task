@@ -1,5 +1,4 @@
-
-
+from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -48,14 +47,16 @@ class MainPageSbis(Base):
         """ Открываем главную страницу """
         Logger.add_start_step(method="open_main_page")
         self.driver.get(self.url)
-        self.driver.maximize_window()
         Logger.add_end_step(url=self.driver.current_url, method="open_main_page")
 
     def open_contacts(self):
         """ Переходим в раздел 'Контакты' """
         Logger.add_start_step(method="open_contacts")
-        self.get_current_url()
-        self.select_contacts()
+        try:
+            self.get_current_url()
+            self.select_contacts()
+        except StaleElementReferenceException:
+            self.driver.refresh()
         Logger.add_end_step(url=self.driver.current_url, method="open_contacts")
 
     def open_download_page(self):
