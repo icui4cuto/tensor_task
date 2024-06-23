@@ -9,7 +9,7 @@ from utilities.logger import Logger
 
 
 class MainPageSbis(Base):
-    """ Главная страница """
+    """ Главная страница 'СБИС' """
     url = "https://sbis.ru/"
 
     def __init__(self, driver):

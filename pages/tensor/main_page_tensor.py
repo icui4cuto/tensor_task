@@ -9,7 +9,7 @@ from utilities.logger import Logger
 
 
 class MainPageTensor(Base):
-    """ Главная страница """
+    """ Главная страница 'Тензор' """
 
     def __init__(self, driver):
         super().__init__(driver)
