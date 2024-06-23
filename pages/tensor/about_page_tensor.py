@@ -8,38 +8,38 @@ from utilities.logger import Logger
 
 
 class AboutPageTensor(Base):
-    """ Главная страница """
+    """ Страница 'О компании' """
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
     # Locators
-    img_1 = "//img[@alt='Разрабатываем систему СБИС']"
-    img_2 = "//img[@alt='Продвигаем сервисы']"
-    img_3 = "//img[@alt='Создаем инфраструктуру']"
-    img_4 = "//img[@alt='Сопровождаем клиентов']"
+    development_sbis_img = "//img[@alt='Разрабатываем систему СБИС']"
+    promoting_service_img = "//img[@alt='Продвигаем сервисы']"
+    creating_infrastructure_img = "//img[@alt='Создаем инфраструктуру']"
+    accompany_clients_img = "//img[@alt='Сопровождаем клиентов']"
 
     # Getters
-    def get_img_1(self):
-        """ Получение локатора изображения 'Разрабатываем систему СБИС' """
+    def get_development_sbis_img(self):
+        """ Получение WebElement изображения 'Разрабатываем систему СБИС' """
         return WebDriverWait(self.driver, 30).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, self.img_1)))
+            expected_conditions.visibility_of_element_located((By.XPATH, self.development_sbis_img)))
 
-    def get_img_2(self):
-        """ Получение локатора изображения 'Продвигаем сервисы' """
+    def get_promoting_service_img(self):
+        """ Получение WebElement изображения 'Продвигаем сервисы' """
         return WebDriverWait(self.driver, 30).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, self.img_2)))
+            expected_conditions.visibility_of_element_located((By.XPATH, self.promoting_service_img)))
 
-    def get_img_3(self):
-        """ Получение локатора изображения 'Создаем инфраструктуру' """
+    def get_creating_infrastructure_img(self):
+        """ Получение WebElement изображения 'Создаем инфраструктуру' """
         return WebDriverWait(self.driver, 30).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, self.img_3)))
+            expected_conditions.visibility_of_element_located((By.XPATH, self.creating_infrastructure_img)))
 
-    def get_img_4(self):
-        """ Получение локатора изображения 'Сопровождаем клиентов' """
+    def get_accompany_clients_img(self):
+        """ Получение WebElement изображения 'Сопровождаем клиентов' """
         return WebDriverWait(self.driver, 30).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, self.img_4)))
+            expected_conditions.visibility_of_element_located((By.XPATH, self.accompany_clients_img)))
 
     # Methods
     def check_img_size(self):
@@ -47,6 +47,6 @@ class AboutPageTensor(Base):
         with allure.step("check_img_size"):
             Logger.add_start_step(method="check_img_size")
             self.get_current_url()
-            self.assert_img_size(self.get_img_1(), self.get_img_2(), self.get_img_3(), self.get_img_4())
+            self.assert_img_size(self.get_development_sbis_img(), self.get_promoting_service_img(),
+                                 self.get_creating_infrastructure_img(), self.get_accompany_clients_img())
             Logger.add_end_step(url=self.driver.current_url, method="check_img_size")
-
