@@ -25,22 +25,22 @@ class ContactsPageSbis(Base):
 
     # Getters
     def get_tensor_banner(self):
-        """ Получение локатора баннера 'Тензор' """
+        """ Получение WebElement баннера 'Тензор' """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.tensor_banner)))
 
     def get_region(self):
-        """ Получение локатора региона """
+        """ Получение WebElement региона """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.region)))
 
     def get_partner_list(self):
-        """ Получение локатора списка партнеров """
+        """ Получение WebElement списка партнеров """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.partner_list)))
 
     def get_kamchatka_region(self):
-        """ Получение локатора Камчатского края в списке регионов """
+        """ Получение WebElement Камчатского края в списке регионов """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.kamchatka_region)))
 

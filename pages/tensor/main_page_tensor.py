@@ -21,12 +21,12 @@ class MainPageTensor(Base):
 
     # Getters
     def get_power_in_people(self):
-        """ Получение локатора блока 'Сила в людях' """
+        """ Получение WebElement блока 'Сила в людях' """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.power_in_people)))
 
     def get_about_link(self):
-        """ Получение локатора ссылки 'Подробнее' """
+        """ Получение WebElement ссылки 'Подробнее' """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.about_link)))
 

@@ -22,12 +22,12 @@ class MainPageSbis(Base):
 
     # Getters
     def get_contacts(self):
-        """ Получение локатора 'Контакты' """
+        """ Получение WebElement 'Контакты' """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.contacts)))
 
     def get_download_link(self):
-        """ Получение локатора 'Скачать локальные версии' """
+        """ Получение WebElement 'Скачать локальные версии' """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.download_link)))
 

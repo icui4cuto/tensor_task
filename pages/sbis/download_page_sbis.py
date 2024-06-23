@@ -23,7 +23,7 @@ class DownloadPageSbis(Base):
 
     # Getters
     def get_download(self):
-        """ Получение локатора файла """
+        """ Получение WebElement ссылки на файл веб-установщика """
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.visibility_of_element_located((By.XPATH, self.download)))
 
