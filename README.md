@@ -26,8 +26,9 @@
 ```python -m pytest -s -v```
 
 ## Создание и просмотр отчетов Allure
+1. Для установки Allure необходимо воспользоваться документацией - https://allurereport.org/docs/install-for-windows/
 
-1. Создание отчета
+2. Создание отчета
 
 ```python -m pytest --alluredir=test_results/ ```
 
