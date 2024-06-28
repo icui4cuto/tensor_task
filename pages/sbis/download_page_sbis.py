@@ -12,7 +12,7 @@ from utilities.logger import Logger
 
 class DownloadPageSbis(Base):
     """ Страница загрузки файлов """
-    file_path = f"{os.getcwd()}\\sbisplugin-setup-web.exe"
+    file_path = f"{os.getcwd()}\\sbisplugin-setup-web-standart.exe"
 
     def __init__(self, driver):
         super().__init__(driver)
