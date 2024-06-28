@@ -12,10 +12,6 @@ class MainPageSbis(Base):
     """ Главная страница 'СБИС' """
     url = "https://sbis.ru/"
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     contacts = "(//a[@href='/contacts'])[1]"
     download_link = "//a[@href='/download']"

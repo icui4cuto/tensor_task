@@ -13,10 +13,6 @@ from utilities.logger import Logger
 class ContactsPageSbis(Base):
     """ Страница 'Контакты' """
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     tensor_banner = "(//a[@title='tensor.ru'])[1]"
     region = "(//span[@class='sbis_ru-Region-Chooser__text sbis_ru-link'])[1]"

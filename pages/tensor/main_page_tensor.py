@@ -11,10 +11,6 @@ from utilities.logger import Logger
 class MainPageTensor(Base):
     """ Главная страница 'Тензор' """
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     power_in_people = "//p[contains(text(), 'Сила в людях')]"
     about_link = "//p[@class='tensor_ru-Index__card-text']/a[@href='/about']"

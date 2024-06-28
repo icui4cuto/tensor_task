@@ -10,10 +10,6 @@ from utilities.logger import Logger
 class AboutPageTensor(Base):
     """ Страница 'О компании' """
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     development_sbis_img = "//img[@alt='Разрабатываем систему СБИС']"
     promoting_service_img = "//img[@alt='Продвигаем сервисы']"
